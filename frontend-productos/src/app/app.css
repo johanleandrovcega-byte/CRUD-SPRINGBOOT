@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: #f4f7fc;
+}
+
+h1{
+    text-align: center;
+    margin: 30px 0;
+    color: #1e293b;
+    font-size: 2.5rem;
+}
+
+h2{
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+form{
+    background: white;
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+}
+
+input,
+select{
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: .3s;
+}
+
+input:focus,
+select:focus{
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37,99,235,.2);
+}
+
+button{
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+button:hover{
+    transform: translateY(-2px);
+}
+
+button[type="submit"]{
+    background: #2563eb;
+    color: white;
+}
+
+button[type="submit"]:hover{
+    background: #1d4ed8;
+}
+
+hr{
+    width: 90%;
+    margin: 30px auto;
+    border: none;
+}
+
+table{
+    width: 95%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+thead{
+    background: #1e293b;
+    color: white;
+}
+
+th{
+    padding: 15px;
+}
+
+td{
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+tr:hover{
+    background: #f8fafc;
+}
+
+td button:first-child{
+    background: #f59e0b;
+    color: white;
+    margin-right: 8px;
+}
+
+td button:first-child:hover{
+    background: #d97706;
+}
+
+td button:last-child{
+    background: #ef4444;
+    color: white;
+}
+
+td button:last-child:hover{
+    background: #dc2626;
+}
+
+div[ng-reflect-ng-if="true"]{
+    animation: aparecer .3s ease;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+    table{
+        display: block;
+        overflow-x: auto;
+    }
+
+    form{
+        grid-template-columns: 1fr;
+    }
+}

@@ -24,7 +24,7 @@ public class ProductoService {
     public Producto guardar(Producto producto) {
 
         if (producto.getId() == null) {
-            // SOLO cuando es nuevo
+
             if (repository.existsByCodigo(producto.getCodigo())) {
                 throw new RuntimeException("El código ya existe");
             }

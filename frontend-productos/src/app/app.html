@@ -1,0 +1,161 @@
+<h1>CRUD PRODUCTOS</h1>
+
+
+<div *ngIf="!mostrandoFormularioEditar">
+
+  <h2>Nuevo Producto</h2>
+
+  <form (ngSubmit)="guardarProducto()">
+
+    <input
+      type="text"
+      name="codigo"
+      placeholder="Código"
+      [(ngModel)]="nuevoProducto.codigo">
+
+    <input
+      type="text"
+      name="nombre"
+      placeholder="Nombre"
+      [(ngModel)]="nuevoProducto.nombre">
+
+    <input
+      type="text"
+      name="descripcion"
+      placeholder="Descripción"
+      [(ngModel)]="nuevoProducto.descripcion">
+
+    <input
+      type="number"
+      name="precio"
+      placeholder="Precio"
+      [(ngModel)]="nuevoProducto.precio">
+
+    <input
+      type="number"
+      name="cantidad"
+      placeholder="Cantidad"
+      [(ngModel)]="nuevoProducto.cantidad">
+
+    <select
+      name="estado"
+      [(ngModel)]="nuevoProducto.estado">
+
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+
+    </select>
+
+    <button type="submit">
+      Guardar
+    </button>
+
+  </form>
+
+  <hr>
+
+  <table border="1">
+
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let producto of productos">
+
+        <td>{{ producto.codigo }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio }}</td>
+        <td>{{ producto.cantidad }}</td>
+        <td>{{ producto.estado }}</td>
+
+        <td>
+
+          <button
+            type="button"
+            (click)="editarProducto(producto)">
+            Editar
+          </button>
+
+          <button
+            type="button"
+            (click)="confirmarEliminar(producto.id!)">
+            Eliminar
+          </button>
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+
+<div *ngIf="mostrandoFormularioEditar">
+
+  <h2>Editar Producto</h2>
+
+  <form (ngSubmit)="actualizarProducto()">
+
+    <input
+      type="text"
+      name="codigoEditar"
+      [(ngModel)]="nuevoProducto.codigo">
+
+    <input
+      type="text"
+      name="nombreEditar"
+      [(ngModel)]="nuevoProducto.nombre">
+
+    <input
+      type="text"
+      name="descripcionEditar"
+      [(ngModel)]="nuevoProducto.descripcion">
+
+    <input
+      type="number"
+      name="precioEditar"
+      [(ngModel)]="nuevoProducto.precio">
+
+    <input
+      type="number"
+      name="cantidadEditar"
+      [(ngModel)]="nuevoProducto.cantidad">
+
+    <select
+      name="estadoEditar"
+      [(ngModel)]="nuevoProducto.estado">
+
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+
+    </select>
+
+    <br><br>
+
+    <button type="submit">
+      Actualizar
+    </button>
+
+    <button
+      type="button"
+      (click)="cancelarEdicion()">
+      Cancelar
+    </button>
+
+  </form>
+
+</div>
